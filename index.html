@@ -37,13 +37,18 @@
             function playRound(){
                 computerSelection = getComputerChoice();
                 humanSelection = getHumanChoice();
-                if(computerSelection == "ROCK" && humanSelection == "PAPER" || computerSelection == "PAPER" && humanSelection == "SCISSORS" ||computerSelection == "SCISSORS" && humanSelection == "ROCK"){
-                    console.log("You win this round! " + humanSelection + " beats "+ computerSelection)
-                    humanScore++;
+                if (computerSelection == "ROCK" && humanSelection == "PAPER" ||
+                    computerSelection == "PAPER" && humanSelection == "SCISSORS" ||
+                    computerSelection == "SCISSORS" && humanSelection == "ROCK"){
+                        console.log("You win this round! " + humanSelection + " beats "+ computerSelection)
+                        humanScore++;
                 }
-                else if(computerSelection == "ROCK" && humanSelection == "SCISSORS" || computerSelection == "PAPER" && humanSelection == "ROCK" ||computerSelection == "SCISSORS" && humanSelection == "PAPER"){
-                    console.log("You lose this round! " + computerSelection + " beats "+ humanSelection)
-                    computerScore ++;
+                else 
+                if (computerSelection == "ROCK" && humanSelection == "SCISSORS" ||
+                    computerSelection == "PAPER" && humanSelection == "ROCK" ||
+                    computerSelection == "SCISSORS" && humanSelection == "PAPER"){
+                        console.log("You lose this round! " + computerSelection + " beats "+ humanSelection)
+                        computerScore ++;
                 }
                 else {console.log("Its a tie! You both picked " + humanSelection)}
             }
