@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let humanScore = 0;
+        let computerScore = 0;
+
+        function getComputerChoice(){
+            let random = 0;
+            random=Math.random()*10;
+            if(random < 10/3){
+                return "ROCK";
+            }
+            else if(random > 10/3 && random < 20/3){
+                return "PAPER";
+            }
+            else return "SCISSORS";
+
+        }
+
+        function getHumanChoice(){
+            let selection = prompt("Do you choose rock, paper or scissors?")
+            return selection.toUpperCase();
+        }
+
+        function playGame(){
+            let computerSelection = "";
+            let humanSelection = "";
+            function playRound(){
+                computerSelection = getComputerChoice();
+                humanSelection = getHumanChoice();
+                if(computerSelection == "ROCK" && humanSelection == "PAPER" || computerSelection == "PAPER" && humanSelection == "SCISSORS" ||computerSelection == "SCISSORS" && humanSelection == "ROCK"){
+                    console.log("You win! " + humanSelection + " beats "+ computerSelection)
+                }
+                else if(computerSelection == "ROCK" && humanSelection == "SCISSORS" || computerSelection == "PAPER" && humanSelection == "ROCK" ||computerSelection == "SCISSORS" && humanSelection == "PAPER"){
+                console.log("You lose! " + computerSelection + " beats "+ humanSelection)}
+                else {console.log("Its a tie!")}
+            }
+
+           
+            
+        }    
+        playGame();
+
+
+    </script>
+</body>
+</html>
