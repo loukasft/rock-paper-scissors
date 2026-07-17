@@ -19,14 +19,14 @@ function getHumanChoice(){
     return selection.toUpperCase();
 }
 
-function playGame(){
-    let computerSelection = "";
-    let humanSelection = "";
-    let humanScore = 0;
-    let computerScore = 0;
+// function playGame(){
+//     let computerSelection = "";
+//     let humanSelection = "";
+//     let humanScore = 0;
+//     let computerScore = 0;
     function playRound(){
         computerSelection = getComputerChoice();
-        humanSelection = getHumanChoice();
+        
         if (computerSelection == "ROCK" && humanSelection == "PAPER" ||
             computerSelection == "PAPER" && humanSelection == "SCISSORS" ||
             computerSelection == "SCISSORS" && humanSelection == "ROCK"){
@@ -43,21 +43,30 @@ function playGame(){
         else {console.log("Its a tie! You both picked " + humanSelection)}
     }
 
-    for (let i = 0; i < 5; i++) {
-        playRound();
-    }
+//     for (let i = 0; i < 5; i++) {
+//         playRound();
+//     }
 
-    if(humanScore > computerScore){
-        console.log("You won " + humanScore + " - " + computerScore)
-    }
-    else if(humanScore < computerScore){
-        console.log("You lost " + computerScore + " - " + humanScore)
-    }
-    else{
-        console.log("It's a tie")
-    }
+//     if(humanScore > computerScore){
+//         console.log("You won " + humanScore + " - " + computerScore)
+//     }
+//     else if(humanScore < computerScore){
+//         console.log("You lost " + computerScore + " - " + humanScore)
+//     }
+//     else{
+//         console.log("It's a tie")
+//     }
     
-}    
-playGame();
+// }    
+
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) =>{
+    button.addEventListener("click", () =>{
+        humanSelection = button.textContent;
+        playRound();
+    });
+});
+
+// playGame();
 
 
