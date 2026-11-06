@@ -14,10 +14,10 @@ function getComputerChoice(){
 
 }
 
-function getHumanChoice(){
-    let selection = prompt("Do you choose rock, paper or scissors?")
-    return selection.toUpperCase();
-}
+// function getHumanChoice(){
+//     let selection = prompt("Do you choose rock, paper or scissors?")
+//     return selection.toUpperCase();
+// }
 
 const content = document.querySelector("div");
 
@@ -42,11 +42,16 @@ const content = document.querySelector("div");
     content.appendChild(div);
     }
         
-// function disableAllButtons() {
-//     buttons.forEach((button) => {
-//         button.disabled = true;
-//     });
-// }
+function disableAllButtons() {
+    buttons.forEach((button) => {
+        button.disabled = true;
+    });
+}
+function enableAllButtons() {
+    buttons.forEach((button) => {
+        button.disabled = false;
+    });
+}
 
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) =>{
@@ -64,7 +69,17 @@ buttons.forEach((button) =>{
                 content.appendChild(div);
                 humanScore = 0;
                 computerScore = 0;
-                // disableAllButtons();
+                disableAllButtons();
+                const newGameButton = document.createElement("button");
+                newGameButton.textContent = "NEW GAME";
+                newGameButton.addEventListener('click', function() {
+                    const divs = content.querySelectorAll('p');
+                    divs.forEach(div => div.remove());
+                    newGameButton.remove();
+                    enableAllButtons();
+
+                });
+                content.appendChild(newGameButton);
                 }
                         
     });
